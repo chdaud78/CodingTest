@@ -1,1 +1,0 @@
-const solution = (box, n) => box.reduce((a,b) => a*Math.floor(b/n), 1);

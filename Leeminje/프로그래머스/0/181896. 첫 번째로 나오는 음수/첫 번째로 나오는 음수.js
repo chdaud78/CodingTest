@@ -1,1 +1,0 @@
-const solution = (num_list) => num_list.findIndex(e => e < 0);

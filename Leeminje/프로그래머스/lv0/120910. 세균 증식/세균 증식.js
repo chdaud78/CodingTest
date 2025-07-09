@@ -1,1 +1,0 @@
-const solution = (n, t) => Math.pow(2,t)*n;

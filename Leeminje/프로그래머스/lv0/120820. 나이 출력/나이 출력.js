@@ -1,1 +1,0 @@
-const solution = age => new Date().getFullYear()-age;

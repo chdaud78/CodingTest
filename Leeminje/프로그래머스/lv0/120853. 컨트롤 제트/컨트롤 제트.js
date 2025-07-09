@@ -1,1 +1,0 @@
-const solution = s => s.split(' ').map((e,i,arr) => e==='Z' ? arr[i-1]*-1 : Number(e)).reduce((a,b) => a+b,0);

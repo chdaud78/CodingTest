@@ -1,1 +1,0 @@
-const solution = (a, b) => Math.max(Number('' + a + b), '' + b + a);
