@@ -1,0 +1,1 @@
+const solution = n =>  Array(n).fill(0).map((e,i) => e+i+1).filter(v => n%v===0);
