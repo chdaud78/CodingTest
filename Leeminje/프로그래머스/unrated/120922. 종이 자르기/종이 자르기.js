@@ -1,1 +1,0 @@
-const solution = (M, N) => M*N === 1 ? 0 : (M*N-1);

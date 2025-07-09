@@ -1,1 +1,0 @@
-const solution = numbers => numbers.map((el) => el*2);

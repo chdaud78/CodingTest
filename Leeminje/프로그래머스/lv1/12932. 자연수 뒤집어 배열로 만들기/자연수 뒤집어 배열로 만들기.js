@@ -1,1 +1,0 @@
-const solution = (n) => String(n).split('').map(e => Number(e)).reverse();

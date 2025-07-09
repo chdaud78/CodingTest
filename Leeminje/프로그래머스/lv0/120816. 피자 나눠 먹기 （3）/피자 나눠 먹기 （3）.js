@@ -1,1 +1,0 @@
-const solution = (slice, n) => Math.ceil(n/slice);

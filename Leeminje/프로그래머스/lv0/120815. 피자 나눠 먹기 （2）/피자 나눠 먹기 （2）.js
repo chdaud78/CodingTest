@@ -1,1 +1,0 @@
-const solution = n => Array(6).fill(n).map((e,i) => e*=(i+1)).find(e => e%6===0)/6;

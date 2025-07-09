@@ -1,1 +1,0 @@
-const solution = strlist => strlist.map(e => e.length);
