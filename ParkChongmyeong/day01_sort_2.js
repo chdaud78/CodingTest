@@ -1,18 +1,20 @@
-//[
-//     [2, 5, 3], 
-//     [4, 4, 1], 
-//     [1, 7, 3]
-// ]
+// 개선 전
+/*function solution(numbers) {
+    var answer = '';
 
-function solution(array, commands) {
-    var answer = [];
-    
-    for(var i = 0; i < commands.length; i++) {
-        var test = [];
-        test = array.slice(commands[i][0]-1, commands[i][1]);
-        test.sort((a,b) => a-b);
-        answer.push(test[commands[i][2]-1]);
+    for(let i = 0 ; i < numbers.length ; i++) {
+        numbers[i] = numbers[i].toString();
     }
-    
+
+    numbers.sort((a,b) => (b+a) - (a+b));
+
+    answer = numbers.reduce((acc,i) => acc + i);
     return answer;
+}*/
+//개선 후
+function solution(numbers) {
+  const strs = numbers.map(String);
+  strs.sort((a, b) => (b + a).localeCompare(a + b));
+  if (strs[0] === '0') return '0';
+  return strs.join('');
 }
