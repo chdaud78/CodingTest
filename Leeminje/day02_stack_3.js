@@ -52,5 +52,3 @@ function solution(prices) {
  * - 스택에서 하나씩 뒤에서 꺼냄(LIFO)
  * - 스택이 제거됨
  */
-
-// 개선 풀이

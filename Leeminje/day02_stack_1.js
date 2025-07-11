@@ -9,3 +9,12 @@ const solution = (arr) => arr.filter((num, idx) => num !== arr[idx - 1]);
  */
 
 // 개선 풀이
+function solution(arr) {
+  const stack = [];
+
+  for (const value of arr) {
+    if (result.at(-1) !== value) result.push(value);
+  }
+
+  return stack;
+}

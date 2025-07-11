@@ -19,3 +19,31 @@ function solution(s) {
  */
 
 // 개선 풀이
+/** 📖 풀이 과정
+ * ※ 위의 풀이는 스택을 사용하지 않음! 몰랐다.
+ * -  stack 선언 후 재진행
+ */
+function solution(s) {
+  const stack = [];
+
+  for (const char of s) {
+    if (char === '(') {
+      stack.push(char);
+    } else {
+      if (stack.length === 0) return false;
+      stack.pop();
+    }
+  }
+
+  return stack.length === 0;
+}
+
+// 실용적인 버전
+// function solution(s) {
+//   const stack = [];
+//   for (const char of s) {
+//     if (char === '(') stack.push(c);
+//     else if (!stack.pop()) return false;
+//   }
+//   return stack.length === 0;
+// }
