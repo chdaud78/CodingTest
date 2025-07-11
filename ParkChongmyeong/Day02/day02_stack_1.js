@@ -12,3 +12,8 @@ function solution(arr) {
 
   return stack;
 }
+
+//개선후
+function solution(arr) {
+  return arr.filter((value, index) => value !== arr[index - 1]);
+}
