@@ -93,4 +93,8 @@ function solution(bridge_length, weight, truck_weights) {
  * 1️⃣ canEnter 조건을 한 줄로 작성
  * - 조건 체크를 간결하게 처리
  * - 조건에 따라 shift() 또는 0을 push
+ *
+ * 2️⃣ 트럭 진입을 한 줄로 처리
+ * - if/else 대신 삼항 연산자로 코드를 단축
+ * - 진입 여부와 상태 push를 분리 없이 처리
  */
