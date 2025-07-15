@@ -25,3 +25,18 @@ function solution(s){
 
   return stack.length === 0;
 }
+
+// 개선 후
+function solution(s){
+  let stack = [];
+
+  for(char of s) {
+    if(char === '(') stack.push(true);
+    else {
+      if(stack.length === 0) return false;
+      stack.pop();
+    }
+  }
+
+  return stack.length === 0;
+}
