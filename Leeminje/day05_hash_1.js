@@ -36,3 +36,37 @@ function solution(clothes) {
  * 3️⃣ 모든 종류의 경우의 수를 곱하면 전체 조합 수가 되며,
  *     이 중 '전부 안 입는 경우'를 빼서 최종 정답을 구한다.
  */
+
+// 개선 풀이
+// - 예외처리 추가
+function validateClothes(clothes) {
+  if (!Array.isArray(clothes)) throw new Error('❌ clothes가 배열이 아닙니다.');
+  if (clothes.length === 0) throw new Error('❌ clothes의 값이 비어있습니다.');
+
+  for (const item of clothes) {
+    if (!Array.isArray(item) || item.length !== 2) {
+      throw new Error('❌ 각 의상은 [이름, 종류] 형태의 배열이어야 합니다.');
+    }
+
+    const [_, type] = item;
+    if (typeof type !== 'string' || type.trim() === '') {
+      throw new Error('❌ 의상 종류(type)는 유효한 문자열이어야 합니다.');
+    }
+  }
+}
+
+function solution(clothes) {
+  validateClothes(clothes);
+
+  const clothesMap = new Map();
+
+  // 1️⃣ 의상 종류별 개수를 세어 clothesMap에 저장
+  for (const [_, type] of clothes) {
+    clothesMap.set(type, (clothesMap.get(type) || 0) + 1);
+  }
+
+  // 2️⃣ 각 종류별 (입는 수 + 안 입는 경우 1)를 모두 곱한 뒤, 전부 안 입는 경우 1을 뺌
+  const answer = [...clothesMap.values()].reduce((acc, count) => acc * (count + 1), 1);
+
+  return answer - 1;
+}
