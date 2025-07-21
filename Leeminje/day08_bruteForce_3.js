@@ -65,5 +65,17 @@ function solution(brown, yellow) {
 }
 
 // 개선코드
-// 제곱근으로 가능한가..?에 대한 고민중
-// 코드 정리 가능해보임. 고민 중
+function solution(brown, yellow) {
+  const total = brown + yellow;
+
+  for (let height = 3; height <= Math.sqrt(total); height++) {
+    if (total % height !== 0) continue;
+    const width = total / height;
+
+    if (width < height) continue;
+
+    const yellowWidth = width - 2;
+    const yellowHeight = height - 2;
+    if (yellowWidth * yellowHeight === yellow) return [Number(width), height]; // 혹시 모를 Float 방지
+  }
+}
