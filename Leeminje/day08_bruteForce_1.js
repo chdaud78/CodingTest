@@ -42,3 +42,18 @@ function solution(sizes) {
  * - 모든 명함 중 가장 큰 가로 = maxWidth
  * - 모든 명함중 가장 큰 세로 = maxHeight
  */
+
+// 개선 풀이
+function solution(sizes) {
+  let maxWidth = 0;
+  let maxHeight = 0;
+
+  for (let [w, h] of sizes) {
+    const [big, small] = w > h ? [w, h] : [h, w];
+
+    maxWidth = Math.max(maxWidth, big);
+    maxHeight = Math.max(maxHeight, small);
+  }
+
+  return maxWidth * maxHeight;
+}

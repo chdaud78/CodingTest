@@ -19,14 +19,37 @@
 
 // 풀이 코드
 // 1️⃣ 모든 숫자 조합 만들기
-function getPermutations(arr, selectNum) {
-  if (selectNum === 1) return arr.map((val) => [val]);
+function getPermutations(arr, r) {
+  //
+  /** (1)
+   * - r이 1일 땐. 숫자 하나만 코드면되니 [v]로 반환!(더 뽑을 숫자가 1개 남았으면, 그냥 배열의 각 요소를 [v]처럼 묶어서 리턴)
+   * - 예: arr = [1, 2], r = 1 => [[1], [2]]
+   */
+  if (r === 1) return arr.map((v) => [v]);
   const result = [];
 
+  /** (2)
+   * - 반복문으로 순열 생성 시작! => arr에서 한 요소씩 뽑기(여기에서 fixed는 맨 앞에 고정)
+   * - 예: [1,2,3]이면 한 번은 1, 다음은 2, 다음은 3이 fixed
+   */
   arr.forEach((fixed, idx) => {
+    /** (3)
+     * - 숫자 하나를 고정(fixed)하고, 고정한 숫자를 제외한 나머지를 rest에 담음
+     * - 예: fixed = 2, arr = [1,2,3] → rest = [1,3]
+     */
     const rest = [...arr.slice(0, idx), ...arr.slice(idx + 1)];
-    const perms = getPermutations(rest, selectNum - 1);
-    const attached = perms.map((perm) => [fixed, ...perm]);
+
+    /** (4)
+     * - 고정한 숫자를 앞에두고 조합을 만든 다음 result에 Push
+     * - 즉, 남은 숫자들(rest)로 남은 자리 수만큼 순열을 구함! === 이게 재귀호출
+     */
+    const perms = getPermutations(rest, r - 1);
+    /** (5)
+     * - 방금 뽑은 fixed 숫자를 앞에 붙여서 순열 조합을 완성
+     * - 예: fixed = 2, perms = [[1,3], [3,1]] → attached = [[2,1,3], [2,3,1]]
+     */
+    const attached = perms.map((p) => [fixed, ...p]);
+    // 결과 리턴
     result.push(...attached);
   });
 
