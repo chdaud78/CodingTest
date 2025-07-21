@@ -1,3 +1,5 @@
+// 소수 찾기
+
 function solution(numbers) {
     const Arr= numbers.split("");
     const Makenum = new Set();
