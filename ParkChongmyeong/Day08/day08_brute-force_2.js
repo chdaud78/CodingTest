@@ -44,5 +44,5 @@ function solution(k, dungeons) {
  * In if) 재귀함수를 통해 현재 피로도를 현재피로도-소모피로도로 갱신, 탐험 횟수 + 1
  * In if) 모든 탐험을 완료하면 visited를 다시 false로 바꾸어 준다.(최대를 찾기 위해 반복하며 던전을 돌아야함)
  * `Math.max(최대, 현재 탐험 루트의 탐험 횟수)`로 최대 수를 갱신
- * 3. 정답 return
+ * 3. 정답 return 한다.
  */
