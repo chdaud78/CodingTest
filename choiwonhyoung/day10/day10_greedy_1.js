@@ -6,7 +6,7 @@ function solution(n, lost, reserve) {
   reverseLost.sort((a, b) => a - b);
 
   for (let i = 0; i < reverseLost.length; i++) {
-    const r = notLost[i];
+    const r = reverseLost[i];
 
     const frontIdx = realLost.indexOf(r - 1);
     if (frontIdx !== -1) {
